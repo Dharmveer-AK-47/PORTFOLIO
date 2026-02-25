@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio | Computer Science Student</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="#home" class="logo">Portfolio</a>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#knowledge">Knowledge</a></li>
+                <li><a href="#certificates">Certificates</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button id="darkModeToggle" class="dark-mode-btn" aria-label="Toggle Dark Mode">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <section id="home" class="hero">
+        <div class="container hero-content">
+            <div class="hero-image">
+                <img src="assets/images/profile.jpg" alt="Profile Photo" >
+            </div>
+            <div class="hero-text">
+                <h1>Dharmveer</h1>
+                <h2>Web Developer</h2>
+                <p class="tagline">Computer Science Student passionate about building modern web applications and learning new technologies.</p>
+                <a href="#about" class="btn btn-primary">Learn More</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p><b> I am Dharmveer, a B.Tech CSE student at Invertis University, Bareilly, with a keen interest in web development and software engineering.</b></p>
+                    <p><b> I am actively seeking opportunities to apply my technical skills, gain real-world experience, and grow as a full-stack developer.</b></p>
+                    <div class="resume-section">
+                        <h3>Get My Resume</h3>
+                        <form id="resumeForm" class="resume-form">
+                            
+                                
+                                <button type="button" class="btn btn-secondary" onclick="showResume()">
+                                    <i class="fas fa-eye"></i> Show Resume
+                                </button>
+                            
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="resumeModal" class="modal">
+        <span class="close" onclick="closeResume()">&times;</span>
+        <iframe id="resumeFrame" src="assets/resume.pdf" title="Resume"></iframe>
+    </div>
+
+    <section id="skills" class="skills">
+        <div class="container">
+            <h2 class="section-title">My Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <i class="fab fa-html5"></i>
+                    <h3>HTML</h3>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 65%"></div>
+                    </div>
+                </div>
+                <div class="skill-card">
+                    <i class="fab fa-css3"></i>
+                    <h3>CSS</h3>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 55%"></div>
+                    </div>
+                </div>
+                <div class="skill-card">
+                    <i class="fab fa-js"></i>
+                    <h3>JavaScript</h3>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 50%"></div>
+                    </div>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-code"></i>
+                    <h3>Data Structures</h3>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 45%"></div>
+                    </div>
+                </div>
+                <div class="skill-card">
+                    <i class="fab fa-python"></i>
+                    <h3>Python</h3>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 75%"></div>
+                    </div>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-brain"></i>
+                    <h3>Machine Learning</h3>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 30%"></div>
+                    </div>
+                </div>
+           
+        </div>
+    </section>
+
+    <!-- Knowledge Section -->
+    <section id="knowledge" class="tools">
+        <div class="container">
+            <h2 class="section-title">Tools Knowledge</h2>
+            <div class="tools-container">
+                <div class="tool-card">
+                    <i class="fab fa-github"></i>
+                    <h3>GitHub</h3>
+                </div>
+                <div class="tool-card">
+                    <i class="fas fa-code"></i>
+                    <h3>VS Code</h3>
+                </div>
+                <div class="tool-card">
+                    <i class="fab fa-python"></i>
+                    <h3>Jupyter Notebook</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="certificates" class="certificates">
+        <div class="container">
+            <h2 class="section-title">My Certificates</h2>
+            <div class="certificates-grid">
+                <div class="certificate-card">
+                    <a href="assets/cert1.jpg" target="_blank">
+                        <img src="assets/cert1.jpg" alt="Certificate 1" onerror="this.src='https://via.placeholder.com/400x300?text=Certificate+1'">
+                        <div class="certificate-overlay">
+                            <i class="fas fa-expand"></i>
+                            <span>View Certificate</span>
+                        </div>
+                    </a>
+                    <h3>FOREGE AWS</h3>
+                </div>
+                <div class="certificate-card">
+                    <a href="assets/cert2.jpg" target="_blank">
+                        <img src="assets/cert2.jpg" alt="Certificate 2" onerror="this.src='https://via.placeholder.com/400x300?text=Certificate+2'">
+                        <div class="certificate-overlay">
+                            <i class="fas fa-expand"></i>
+                            <span>View Certificate</span>
+                        </div>
+                    </a>
+                    <h3>IBM</h3>
+                </div>
+                <div class="certificate-card">
+                    <a href="assets/cert3.jpg" target="_blank">
+                        <img src="assets/cert3.jpg" alt="Certificate 3" onerror="this.src='https://via.placeholder.com/400x300?text=Certificate+3'">
+                        <div class="certificate-overlay">
+                            <i class="fas fa-expand"></i>
+                            <span>View Certificate</span>
+                        </div>
+                    </a>
+                    <h3>Nasscom FutureSkills</h3>
+                </div>
+                <div class="certificate-card">
+                    <a href="assets/cert4.jpg" target="_blank">
+                        <img src="assets/cert4.jpg" alt="Certificate 4" onerror="this.src='https://via.placeholder.com/400x300?text=Certificate+4'">
+                        <div class="certificate-overlay">
+                            <i class="fas fa-expand"></i>
+                            <span>View Certificate</span>
+                        </div>
+                    </a>
+                    <h3>Internship (AutoStackAI)</h3>
+                </div>
+                  <div class="certificate-card">
+                    <a href="assets/cert5.jpg" target="_blank">
+                        <img src="assets/cert5.jpg" alt="Certificate 5" onerror="this.src='https://via.placeholder.com/400x300?text=Certificate+4'">
+                        <div class="certificate-overlay">
+                            <i class="fas fa-expand"></i>
+                            <span>View Certificate</span>
+                        </div>
+                    </a>
+                    <h3>EY Microsoft</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="contact-wrapper">
+                <form id="contactForm" class="contact-form" action="https://formspree.io/f/mvzbdeyq" method="POST">
+                    <div class="form-group">
+                        <input type="text" id="contactName" name="name" placeholder="Your Name" autocomplete="name" required>
+                        <span class="error-message" id="contactNameError"></span>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="contactEmail" name="email" placeholder="Your Email" autocomplete="email" required>
+                        <span class="error-message" id="contactEmailError"></span>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="contactMessage" name="message" rows="5" placeholder="Your Message" autocomplete="off" required></textarea>
+                        <span class="error-message" id="contactMessageError"></span>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Send Message</button>
+                </form>
+                <div class="contact-info">
+                    <div class="info-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>vveer5880@email.com</span>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-phone"></i>
+                        <span>+918057916589</span>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Bareilly (UP), INDIA</span>
+                    </div>
+                    <div class="social-links">
+                        <a href="https://github.com/Dharmveer-AK-47" target="_blank"><i class="fab fa-github"></i></a>
+                        <a href="https://www.linkedin.com/in/dharm-veer-433613349" target="_blank"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://youtube.com/@akdhruva?si=s3MoZ1XPXvDA1GCb" target="_blank"><i class="fab fa-youtube"></i></a>
+                        <a href="https://wa.me/918057916589" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Dharmveer.</p>
+            <p></p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
