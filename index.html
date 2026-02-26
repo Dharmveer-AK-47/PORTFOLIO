@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Portfolio | Computer Science Student</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="projects-style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 </head>
 <body>
@@ -17,6 +18,7 @@
                 <li><a href="#skills">Skills</a></li>
                 <li><a href="#knowledge">Knowledge</a></li>
                 <li><a href="#certificates">Certificates</a></li>
+                <li><a href="#projects">Projects</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
             <div class="nav-actions">
@@ -55,23 +57,34 @@
                     <p><b> I am actively seeking opportunities to apply my technical skills, gain real-world experience, and grow as a full-stack developer.</b></p>
                     <div class="resume-section">
                         <h3>Get My Resume</h3>
-                        <form id="resumeForm" class="resume-form">
-                            
-                                
-                                <button type="button" class="btn btn-secondary" onclick="showResume()">
-                                    <i class="fas fa-eye"></i> Show Resume
-                                </button>
-                            
-                        </form>
+                        <div class="resume-buttons">
+                            <a href="assets/resume.pdf" download class="btn btn-secondary">
+                                <i class="fas fa-download"></i> Download
+                            </a>
+                            <button type="button" class="btn btn-secondary" onclick="showResume()">
+                                <i class="fas fa-eye"></i> Show Resume
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Resume Modal -->
     <div id="resumeModal" class="modal">
-        <span class="close" onclick="closeResume()">&times;</span>
+        <span class="close" onclick="closeResume()">
+            <i class="fas fa-arrow-left"></i> Back
+        </span>
         <iframe id="resumeFrame" src="assets/resume.pdf" title="Resume"></iframe>
+    </div>
+
+    <!-- Certificate Modal -->
+    <div id="certificateModal" class="modal">
+        <span class="close" onclick="closeCertificate()">
+            <i class="fas fa-arrow-left"></i> Back
+        </span>
+        <img id="certificateImage" src="" alt="Certificate" style="max-width: 90%; max-height: 80%; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
     </div>
 
     <section id="skills" class="skills">
@@ -96,14 +109,14 @@
                     <i class="fab fa-js"></i>
                     <h3>JavaScript</h3>
                     <div class="skill-bar">
-                        <div class="skill-progress" style="width: 50%"></div>
+                        <div class="skill-progress" style="width: 35%"></div>
                     </div>
                 </div>
                 <div class="skill-card">
                     <i class="fas fa-code"></i>
                     <h3>Data Structures</h3>
                     <div class="skill-bar">
-                        <div class="skill-progress" style="width: 45%"></div>
+                        <div class="skill-progress" style="width: 40%"></div>
                     </div>
                 </div>
                 <div class="skill-card">
@@ -120,7 +133,7 @@
                         <div class="skill-progress" style="width: 30%"></div>
                     </div>
                 </div>
-           
+            </div>
         </div>
     </section>
 
@@ -149,55 +162,98 @@
         <div class="container">
             <h2 class="section-title">My Certificates</h2>
             <div class="certificates-grid">
-                <div class="certificate-card">
-                    <a href="assets/cert1.jpg" target="_blank">
-                        <img src="assets/cert1.jpg" alt="Certificate 1" onerror="this.src='https://via.placeholder.com/400x300?text=Certificate+1'">
-                        <div class="certificate-overlay">
-                            <i class="fas fa-expand"></i>
-                            <span>View Certificate</span>
-                        </div>
-                    </a>
+                <div class="certificate-card" onclick="showCertificate('assets/cert1.jpg')">
+                    <img src="assets/cert1.jpg" alt="Certificate 1" onerror="this.src='https://via.placeholder.com/400x300?text=Certificate+1'">
+                    <div class="certificate-overlay">
+                        <i class="fas fa-expand"></i>
+                        <span>View Certificate</span>
+                    </div>
                     <h3>FOREGE AWS</h3>
                 </div>
-                <div class="certificate-card">
-                    <a href="assets/cert2.jpg" target="_blank">
-                        <img src="assets/cert2.jpg" alt="Certificate 2" onerror="this.src='https://via.placeholder.com/400x300?text=Certificate+2'">
-                        <div class="certificate-overlay">
-                            <i class="fas fa-expand"></i>
-                            <span>View Certificate</span>
-                        </div>
-                    </a>
+                <div class="certificate-card" onclick="showCertificate('assets/cert2.jpg')">
+                    <img src="assets/cert2.jpg" alt="Certificate 2" onerror="this.src='https://via.placeholder.com/400x300?text=Certificate+2'">
+                    <div class="certificate-overlay">
+                        <i class="fas fa-expand"></i>
+                        <span>View Certificate</span>
+                    </div>
                     <h3>IBM</h3>
                 </div>
-                <div class="certificate-card">
-                    <a href="assets/cert3.jpg" target="_blank">
-                        <img src="assets/cert3.jpg" alt="Certificate 3" onerror="this.src='https://via.placeholder.com/400x300?text=Certificate+3'">
-                        <div class="certificate-overlay">
-                            <i class="fas fa-expand"></i>
-                            <span>View Certificate</span>
-                        </div>
-                    </a>
+                <div class="certificate-card" onclick="showCertificate('assets/cert3.jpg')">
+                    <img src="assets/cert3.jpg" alt="Certificate 3" onerror="this.src='https://via.placeholder.com/400x300?text=Certificate+3'">
+                    <div class="certificate-overlay">
+                        <i class="fas fa-expand"></i>
+                        <span>View Certificate</span>
+                    </div>
                     <h3>Nasscom FutureSkills</h3>
                 </div>
-                <div class="certificate-card">
-                    <a href="assets/cert4.jpg" target="_blank">
-                        <img src="assets/cert4.jpg" alt="Certificate 4" onerror="this.src='https://via.placeholder.com/400x300?text=Certificate+4'">
-                        <div class="certificate-overlay">
-                            <i class="fas fa-expand"></i>
-                            <span>View Certificate</span>
-                        </div>
-                    </a>
+                <div class="certificate-card" onclick="showCertificate('assets/cert4.jpg')">
+                    <img src="assets/cert4.jpg" alt="Certificate 4" onerror="this.src='https://via.placeholder.com/400x300?text=Certificate+4'">
+                    <div class="certificate-overlay">
+                        <i class="fas fa-expand"></i>
+                        <span>View Certificate</span>
+                    </div>
                     <h3>Internship (AutoStackAI)</h3>
                 </div>
-                  <div class="certificate-card">
-                    <a href="assets/cert5.jpg" target="_blank">
-                        <img src="assets/cert5.jpg" alt="Certificate 5" onerror="this.src='https://via.placeholder.com/400x300?text=Certificate+4'">
-                        <div class="certificate-overlay">
-                            <i class="fas fa-expand"></i>
-                            <span>View Certificate</span>
-                        </div>
-                    </a>
+                <div class="certificate-card" onclick="showCertificate('assets/cert5.jpg')">
+                    <img src="assets/cert5.jpg" alt="Certificate 5" onerror="this.src='https://via.placeholder.com/400x300?text=Certificate+5'">
+                    <div class="certificate-overlay">
+                        <i class="fas fa-expand"></i>
+                        <span>View Certificate</span>
+                    </div>
                     <h3>EY Microsoft</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Real Life Projects Section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <h2 class="section-title">Real Life Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-icon">
+                        <i class="fas fa-layer-group"></i>
+                    </div>
+                    <h3 class="project-title">Tower of Hanoi</h3>
+                    <span class="project-tag tag-game">Game</span>
+                    <p class="project-description">An interactive puzzle game implementing the classic recursive algorithm with smooth animations and difficulty levels.</p>
+                    <a href="https://tower-of-hanoi-asheesh-kashyap-007.netlify.app/" target="_blank" class="btn btn-project">
+                        <i class="fas fa-external-link-alt"></i> View Live Project
+                    </a>
+                </div>
+                <div class="project-card">
+                    <div class="project-icon">
+                        <i class="fas fa-spell-check"></i>
+                    </div>
+                    <h3 class="project-title">Word puzzle game</h3>
+                    <span class="project-tag tag-game">Game</span>
+                    <p class="project-description">A fun word guessing game with multiple difficulty modes, score tracking, and engaging user interface.</p>
+                    <a href="https://dharmveer-ak-47.github.io/word-complete/" target="_blank" class="btn btn-project">
+                        <i class="fas fa-external-link-alt"></i> View Live Project
+                    </a>
+                </div>
+                <div class="project-card">
+                    <div class="project-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h3 class="project-title">RSK Tool Utilities</h3>
+                    <span class="project-tag tag-website">Website</span>
+                    <p class="project-description">A comprehensive utility toolkit providing various online tools for developers and everyday tasks.</p>
+                    <a href="https://my-first-website-wdp5.onrender.com" target="_blank" class="btn btn-project">
+                        <i class="fas fa-external-link-alt"></i> View Live Project
+                    </a>
+                </div>
+                <div class="project-card">
+                    <div class="project-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                    </div>
+                    <h3 class="project-title">E-Commerce Website</h3>
+                    <span class="project-tag tag-website">Website</span>
+                    <p class="project-description">A fully functional online store with product catalog, shopping cart, user authentication, and payment integration.</p>
+                    <a href="https://e-commers-asheesh-kashyap-007.netlify.app/" target="_blank" class="btn btn-project">
+                        <i class="fas fa-external-link-alt"></i> View Live Project
+                    </a>
                 </div>
             </div>
         </div>
@@ -222,37 +278,80 @@
                     </div>
                     <button type="submit" class="btn btn-primary">Send Message</button>
                 </form>
-                <div class="contact-info">
-                    <div class="info-item">
-                        <i class="fas fa-envelope"></i>
-                        <span>vveer5880@email.com</span>
-                    </div>
-                    <div class="info-item">
-                        <i class="fas fa-phone"></i>
-                        <span>+918057916589</span>
-                    </div>
-                    <div class="info-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <span>Bareilly (UP), INDIA</span>
-                    </div>
-                    <div class="social-links">
-                        <a href="https://github.com/Dharmveer-AK-47" target="_blank"><i class="fab fa-github"></i></a>
-                        <a href="https://www.linkedin.com/in/dharm-veer-433613349" target="_blank"><i class="fab fa-linkedin"></i></a>
-                        <a href="https://youtube.com/@akdhruva?si=s3MoZ1XPXvDA1GCb" target="_blank"><i class="fab fa-youtube"></i></a>
-                        <a href="https://wa.me/918057916589" target="_blank"><i class="fab fa-whatsapp"></i></a>
-                    </div>
-                </div>
             </div>
         </div>
     </section>
 
-    <footer>
+    <footer class="footer">
         <div class="container">
-            <p>&copy; 2026 Dharmveer.</p>
-            <p></p>
+            <div class="footer-intro">
+                <p class="footer-tagline">Let's connect and build something amazing together.</p>
+                <p class="footer-subtext">Feel free to reach out for collaborations or just a friendly hello.</p>
+            </div>
+            
+            <div class="footer-contact">
+                <div class="footer-contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <a href="mailto:vveer5880@email.com">vveer5880@email.com</a>
+                </div>
+                <div class="footer-contact-item">
+                    <i class="fas fa-phone"></i>
+                    <a href="tel:+918057916589">+918057916589</a>
+                </div>
+                <div class="footer-contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Bareilly, UP, India</span>
+                </div>
+            </div>
+            
+            <div class="footer-social">
+                <a href="https://github.com/Dharmveer-AK-47" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/dharm-veer-433613349" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="https://youtube.com/@akdhruva?si=s3MoZ1XPXvDA1GCb" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                <a href="https://wa.me/918057916589" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            </div>
+            
+            <div class="footer-copyright">
+                <p>&copy; 2026 Dharmveer. All rights reserved.</p>
+            </div>
         </div>
     </footer>
 
     <script src="script.js"></script>
+    <script>
+        // Resume Modal Functions
+        function showResume() {
+            var modal = document.getElementById('resumeModal');
+            if (modal) modal.style.display = 'flex';
+        }
+
+        function closeResume() {
+            var modal = document.getElementById('resumeModal');
+            if (modal) modal.style.display = 'none';
+        }
+
+        // Certificate Modal Functions
+        function showCertificate(imageSrc) {
+            var modal = document.getElementById('certificateModal');
+            var img = document.getElementById('certificateImage');
+            if (modal && img) {
+                img.src = imageSrc;
+                modal.style.display = 'flex';
+            }
+        }
+
+        function closeCertificate() {
+            var modal = document.getElementById('certificateModal');
+            if (modal) modal.style.display = 'none';
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            var resumeModal = document.getElementById('resumeModal');
+            var certificateModal = document.getElementById('certificateModal');
+            if (event.target === resumeModal) resumeModal.style.display = 'none';
+            if (event.target === certificateModal) certificateModal.style.display = 'none';
+        };
+    </script>
 </body>
 </html>

@@ -145,7 +145,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Contact Form Validation
+    // Contact Form - Formspree Submission
     const contactForm = document.getElementById('contactForm');
     const contactName = document.getElementById('contactName');
     const contactEmail = document.getElementById('contactEmail');
@@ -155,8 +155,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const contactMessageError = document.getElementById('contactMessageError');
 
     if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
+        contactForm.addEventListener('submit', async function(e) {
             e.preventDefault();
+            
             let isValid = true;
             
             if (contactNameError) contactNameError.textContent = '';
@@ -192,8 +193,43 @@ document.addEventListener('DOMContentLoaded', function() {
             }
 
             if (isValid) {
-                alert('Thank you for your message! I will get back to you soon.');
-                contactForm.reset();
+                const formData = new FormData(contactForm);
+                const submitBtn = contactForm.querySelector('button[type="submit"]');
+                
+                if (submitBtn) {
+                    submitBtn.disabled = true;
+                    submitBtn.textContent = 'Sending...';
+                }
+
+                try {
+                    const response = await fetch(contactForm.action, {
+                        method: 'POST',
+                        body: formData,
+                        headers: {
+                            'Accept': 'application/json'
+                        }
+                    });
+
+                    if (response.ok) {
+                        alert('Thank you! Your message has been sent successfully.');
+                        contactForm.reset();
+                    } else {
+                        const errorData = await response.json();
+                        if (errorData.error) {
+                            alert('Error: ' + errorData.error);
+                        } else {
+                            alert('Something went wrong. Please try again.');
+                        }
+                    }
+                } catch (error) {
+                    console.error('Form submission error:', error);
+                    alert('Network error. Please check your connection and try again.');
+                } finally {
+                    if (submitBtn) {
+                        submitBtn.disabled = false;
+                        submitBtn.textContent = 'Send Message';
+                    }
+                }
             }
         });
     }
@@ -245,6 +281,24 @@ function closeResume() {
 
 // Close modal when clicking outside
 window.onclick = function(event) {
-    var modal = document.getElementById('resumeModal');
-    if (event.target === modal) modal.style.display = 'none';
+    var resumeModal = document.getElementById('resumeModal');
+    var certificateModal = document.getElementById('certificateModal');
+    if (event.target === resumeModal) resumeModal.style.display = 'none';
+    if (event.target === certificateModal) certificateModal.style.display = 'none';
 };
+
+// Show Certificate Modal Function
+function showCertificate(imageSrc) {
+    var modal = document.getElementById('certificateModal');
+    var img = document.getElementById('certificateImage');
+    if (modal && img) {
+        img.src = imageSrc;
+        modal.style.display = 'flex';
+    }
+}
+
+// Close Certificate Modal Function
+function closeCertificate() {
+    var modal = document.getElementById('certificateModal');
+    if (modal) modal.style.display = 'none';
+}
